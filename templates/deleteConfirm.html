@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Deletion</title>
+    <style>
+        body {
+            background-color: #7FFFD4; 
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #043c3c; 
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            border: 1px solid #008080;
+            width: 50%;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+            font-weight: bolder;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #008080;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005555;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Confirm Deletion</h1>
+        <hr />
+        <form method="post">
+            <table border="1">
+                <tr>
+                    <td>Are you sure you want to delete record?</td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Yes" name="action" />
+                        <input type="submit" name="action" value="No" /></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>

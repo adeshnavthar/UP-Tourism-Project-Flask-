@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>UP Tours & Travels</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+    function scrollDown() {
+      window.scrollBy(0, 480)
+    }
+  </script>
+
+  <style>
+    
+
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+      font-size: x-large;
+      font-weight: bold;
+      background-color: rgb(228, 246, 26);
+    }
+
+    .jumbotron {
+      margin-bottom: 0;
+    }
+
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    video {
+      width: auto;
+      height: 300px;
+      object-fit: cover;
+    }
+
+  
+    .jumbotron h1 {
+      color: #333; 
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    }
+
+    .navbar-brand {
+      font-size: 1em;
+    }
+
+    .nav>li>a {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      color: #333; 
+    }
+
+    .nav>li>a:hover,
+    .nav>li>a:focus {
+      background-color: rgb(79, 190, 186); 
+      color: #fff; 
+    }
+
+    .panel-heading {
+      color: #fff; 
+      background-color: rgb(79, 190, 186);
+    }
+
+    .panel-footer {
+      background-color: #fff; 
+      text-align: center;
+      padding: 10px;
+    }
+    .panel-footer {
+            text-align: center;
+            margin: auto;
+            background-color: rgb(228, 246, 26);
+            border-radius: 0 0 8px 8px;
+            padding: 10px;
+        }
+
+        .panel-body {
+            align-items: center;
+          }
+    footer img {
+      width: 100%;
+    }
+  </style>
+
+<body >
+
+ 
+  <div class="container text-center"  >
+<div class="jumbotron" style="background-color: rgb(188, 231, 245);">
+  
+    <h1 onclick="scrollDown()"> UP Tours & Travels  </h1> 
+
+    <h2>  <video autoplay muted loop>
+              <source src="\static\Images\tourism video UP.mp4" type="video/mp4" >
+            </video>
+     </h2>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      {%if "uname" in session%}
+      <a class="navbar-brand" style="color: black;" > Welcome,&nbsp;{{session.uname}}</a>
+      {%else%}
+      <a class="navbar-brand"  style="color: black;" href="#"> Hello,Guest </a>
+      {%endif%}
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active" ><a href="/">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown"  style="color: rgb(0, 31, 157);" href="#">Categories
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            {%for cat in cats%}
+            <li><a href="/showTours/{{cat[0]}}" >{{cat[1]}}</a></li>
+            
+            {%endfor%}
+          </ul>
+        </li>
+        <li><a href="/AboutUs" style="color: rgb(0, 31, 157);">About Us</a></li>
+        
+      </ul>
+    
+       
+      <ul class="nav navbar-nav navbar-right">
+        {%if "uname" in session%}
+        <li><a href="/showCart" style="color: rgb(0, 31, 157);"><span class="glyphicon glyphicon-shopping-cart" ></span> Cart</a></li>          
+        <li><a href="/my_bookings" style="color: rgb(0, 31, 157);"><span class="glyphicon glyphicon-list-alt"></span> Bookings</a></li>          
+        <li><a href="/logout" style="color: rgb(0, 31, 157);"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        
+        {%else%}
+        <li><a href="/adminLogin" style="color: rgb(0, 31, 157);"><span class="glyphicon glyphicon-log-in"></span> Admin Login</a></li>
+        <li><a href="/login" style="color: rgb(0, 31, 157);"><span class="glyphicon glyphicon-user"></span>User Login</a></li>
+        <li><a href="/signup" style="color: rgb(0, 31, 157);"><span class="glyphicon glyphicon-pencil"></span> Sign Up</a></li>
+        {%endif%}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">  
+  {%block content%}
+
+  
+  <div class="row">
+    {%for tour in tours%}
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading" style="text-align: center; font-size: large; font-weight: bold; color:black; background-color: rgb(79, 190, 186);">{{tour[2]}}</div>
+        <div class="panel-body" style="align-items: center; display: flex; justify-content: center;">
+          <img src="{{ url_for('static', filename=tour[5])}}" class="img-responsive" style="width:400px;height:350px" alt="{{tour[2]}}">
+      </div>
+      
+        <div class="panel-footer" style="margin:auto ;"><p>Price : &#8377; {{tour[4]}} /- &nbsp; Duration: {{tour[3]}}</p>
+          <p style=" font-size:large; font-weight: bolder;"><a href="/ViewDetails/{{tour[1]}}" class="btn btn-primary">View Details</a></a></p></div>
+      </div>
+    </div> 
+    {%endfor%}   
+  </div>
+  
+  
+  {%endblock%}
+</div><br><br>
+
+
+
+<div>
+
+<footer class="container">
+    
+  <form class="image">
+
+      <img src="\static\Images\foot_bg.png" width="1140px" height="100px">
+  </form>
+</footer>
+</div>
+
+</body>
+ 
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+     .shifted {
+          text-align: right;
+          font-size: x-large; 
+          font-weight: bolder;
+          padding-right: 10px;
+        }
+  </style>
+</head>
+    
+  <body >
+    <h1 style="text-align: center;"> User Login</h1> 
+
+    <p class="shifted">
+      <a href="/" style="padding-right: 25px;"><span class="glyphicon glyphicon-home"  ></span> Home</a><br>
+      <a href="/signup"><span class="glyphicon glyphicon-user" ></span> Sign Up</a>
+    </p>
+
+    <center>
+    <form method="POST" >
+        <table class="table"  style="border-collapse: collapse; width: 500px; background-color: #f0f0f0; padding: 20px;  border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+            <tr><td style=" font-size: large; font-weight: bold; color:black;">USERNAME</td><td ><input type="text" name="uname" class="form-control" placeholder="Enter Username" required/></td></tr>
+            <tr><td  style=" font-size: large; font-weight: bold; color:black;">PASSWORD </td><td><input type="password" name="pwd" class="form-control" placeholder="Enter Password" required/></td></tr>
+            <tr><td colspan="2" align="center"> {{messege}} </td></tr>
+            <tr><td align="center"  colspan="2"><button type="submit" value="Login" class="button btn-success form-control" style="background-color: green; width: 200px; font-size: large; font-weight: bold; color:rgb(252, 252, 252);"> Login </button></td></tr>
+        </table>
+ 
+    </form>
+  </center>
+  </body>
+</html>

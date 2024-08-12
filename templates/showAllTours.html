@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Tours</title>
+    <style>
+        body {
+            background-color: #f5f5f5; 
+            font-family: 'Arial', sans-serif;
+            margin: 0px;
+            padding: 10px;
+            color: #333; 
+        }
+
+        center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3498db; 
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        hr {
+            border-color: #3498db;
+            width: 50%;
+            margin: 20px;
+        }
+
+        a {
+            background-color: #2ecc71;
+            color: #ffffff; 
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #27ae60; 
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #3498db;
+            color: #ffffff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #ecf0f1;
+        }
+
+        img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        a.edit-link, a.delete-link {
+            display: inline-block;
+            padding: 8px;
+            margin: 5px;
+            text-decoration: none;
+            color: #ffffff;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        a.edit-link:hover {
+            background-color: #3498db;
+        }
+
+        a.delete-link:hover {
+            background-color: #e74c3c; 
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>All Tours</h1>
+        <hr/>
+        <a href="/AddTour"> Add New Tour </a>
+        <table border="1">
+            <tr><th>Category</th><th>Tour Id</th><th>Tour Name</th><th>Duration</th><th>Description</th>
+            <th>Image</th><th>Edit</th><th>Delete</th></tr>
+            {%for tour in tours%}
+            <tr>
+                <td>{{tour[0]}}</td>
+                <td>{{tour[1]}}</td>
+                <td>{{tour[2]}}</td>
+                <td>{{tour[3]}}</td>
+                <td>{{tour[6]}}</td>
+                <td><img src="{{ url_for('static', filename=tour[5])}}" alt="{{tour[2]}}"></td>
+                <td><a class="edit-link" href="/edit_tour/{{tour[1]}}">Edit</a></td>
+                <td><a class="delete-link" href="/delete_tour/{{tour[1]}}">Delete</a></td>
+            </tr>
+            {%endfor%}
+        </table><br>
+    </center> 
+</body>
+</html>

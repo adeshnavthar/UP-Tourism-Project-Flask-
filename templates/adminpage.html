@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home Page</title>
+    <style>
+        body {
+            background-color: rgb(94, 23, 106);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #ecf0f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        center {
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em; 
+            color: rgb(255, 255, 110);
+        }
+
+        hr {
+            border-color: #fff47d; 
+            width: 50%;
+            margin: 10px auto;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            width: 300px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            margin: auto; 
+            margin-top: 20px; 
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        td {
+            padding: 15px; 
+            text-align: center;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #2ecc71; 
+            padding: 15px;
+            border-radius: 8px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        a:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <center>
+            <h1>Admin Home Page</h1>
+            <h1>Welcome, {{session["uname"]}}!</h1>
+            <hr/>
+            <form method="post">
+                <table border="0">
+                    <tr><td><a href="/ShowAllTours">Show All Tours</a></td></tr>
+                    <tr><td><a href="/ShowAllCategories">Show All Categories</a></td></tr>
+                    <tr><td><a href="/AdminLogout">Logout</a></td></tr>
+                </table>
+            </form>
+        </center>
+    </div>
+</body>
+</html>

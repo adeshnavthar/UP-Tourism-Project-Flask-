@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show All Categories</title>
+    <style>
+        body {
+            background-color: #ecf0f1; /* Clouds Gray */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3498db; /* Belize Hole Blue */
+            margin-top: 100px;
+            padding-top: 10px;
+        }
+
+        hr {
+            border-color: #3498db; /* Belize Hole Blue */
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        a {
+            background-color: #2ecc71; /* Emerald Green */
+            color: #ffffff; /* White */
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #27ae60; /* Darker Emerald Green */
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            padding: 20px;
+
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #3498db; /* Belize Hole Blue */
+            color: #ffffff; /* White */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light Gray */
+        }
+
+        a.edit-link, a.delete-link {
+            display: inline-block;
+            padding: 8px;
+            margin: 5px;
+            text-decoration: none;
+            color: #ffffff; /* White */
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        a.edit-link:hover {
+            background-color: #3498db; /* Belize Hole Blue */
+        }
+
+        a.delete-link:hover {
+            background-color: #e74c3c; /* Alizarin Red */
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Show All Categories</h1>
+        <hr/>
+        <a href="/addCategory">Add New Category</a>
+        <table border="1">
+            <tr><th>Category Id</th><th>Category Name</th><th>Edit</th><th>Delete</th></tr>
+            {%for cat in cats%}
+            <tr>
+                <td>{{cat[0]}}</td>
+                <td>{{cat[1]}}</td>
+                <td><a class="edit-link" href="/edit_cat/{{cat[0]}}">Edit</a></td>
+                <td><a class="delete-link" href="/delete_cat/{{cat[0]}}">Delete</a></td>
+            </tr>
+            {%endfor%}
+        </table>
+    </center>
+</body>
+</html>

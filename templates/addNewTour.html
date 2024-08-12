@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Tour</title>
+    <style>
+        body {
+            background-color: #37fcb4; 
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #ffffff; 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        h1 {
+            color: #2ecc71;
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="file"],
+        select {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #27ae60; 
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218c53;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <form method="post" enctype="multipart/form-data">
+            <h1>Add New Tour</h1>
+            <hr/>
+            <table border="0">
+                <tr>
+                    <td>Enter Tour Name</td>
+                    <td><input type="text" name="cname" required/></td>
+                </tr>
+                <tr>
+                    <td>Enter Tour Price</td>
+                    <td><input type="number" name="price" required/></td>
+                </tr>
+                <tr>
+                    <td>Enter Description</td>
+                    <td><input type="text" name="desc" required/></td>
+                </tr>
+                <tr>
+                    <td>Upload Image</td>
+                    <td><input type="file" name="image" required/></td>
+                </tr>
+                <tr>
+                    <td>Select Category</td>
+                    <td>
+                        <select name="cat" required>
+                            {%for cat in cats%}
+                                <option value="{{cat[0]}}" >{{cat[1]}}</option>
+                            {%endfor%}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Enter duration</td>
+                    <td><input type="text" name="duration" required /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><input type="submit" value="Add Tour"/></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>

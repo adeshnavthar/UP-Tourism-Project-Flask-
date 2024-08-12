@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Details</title>
+</head>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+
+        
+    }
+
+    table, th, td {
+        border: 2px solid #3498db;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #88c1e7; /* Header background color */
+        color: rgb(3, 2, 2); /* Header text color */
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    footer {
+      background-color: #ffffff;
+      padding-left: 45px;
+      height: 20px; 
+    }
+</style>
+<body>
+    <p style="text-align: right; padding-right: 30px;  font-size: x-large; font-weight: bolder;"><a href="/"> Home</a></p>
+  
+<h1 style="text-align: center; "> Tour Details</h1>
+<form method="post" action="/addToCart">
+    <input type="hidden" name="tour_id" value="{{tour[1]}}"/>
+  <table>
+    <tr>
+       <th>Tour Name</th><th>Tour Price</th><th>Description</th><th>Image</th><th>Duration</th><th>Select No. of Person/s</th>
+    </tr>
+        
+        <tr>
+            <td style=" font-weight: bold; width: 200px;"><input type="hidden" name="tour_name" value="{{tour[2]}}">{{tour[2]}}</td>
+            <td style=" font-weight: bold; width: 200px;">Rs. {{tour[4]}}/- <input type="hidden" name="price" value="{{tour[4]}}"></td>
+            <td style=" font-weight: bold;">{{tour[6]}}</td>
+            <td  style=" width: 300px;"><input type="hidden" name="Image" value="{{url_for('static', filename=tour[5])}}"><img src="{{url_for('static', filename=tour[5])}}" class="img-responsive" style="padding: 5px; width:300px;height:auto;" alt="Image"></td>
+            <td style=" width: 200px;">{{tour[3]}}<input type="hidden" name="duration" value="{{tour[3]}}"></td>
+            <td style=" width: 200px;">
+            <select name="qty" class="form-control" style="width:100px; height: 30px; font-weight: bold;">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            </td>
+        </tr>
+
+    <tr>
+        <td colspan="6"  style="text-align: center; align-items: center;  "><button class="button btn-success form-control"  type="submit"  style="height: 30px; background-color: rgb(243, 239, 22);  font-size: x-large; font-weight: bolder;" >Add To Cart</button></td>
+    </tr>
+</table>
+</form>
+
+<div>
+
+    <footer class="container">
+        
+      <form class="image">
+    
+          <img src="\static\Images\foot_bg.png" width="100%" height="20px">
+      </form>
+    </footer>
+    </div>
+</body>
+
+</html>

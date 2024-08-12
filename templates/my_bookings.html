@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Bookings </title>
+
+    <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+
+        
+    }
+
+    table, th, td {
+        border: 2px solid #3498db;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #88c1e7; 
+        color: rgb(3, 2, 2); 
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    footer {
+      background-color: #f2f2f2;
+      padding: 50px;
+      height: 20px;
+    }
+
+    .total-row {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <p style="text-align: right; padding-right: 30px;font-size: x-large; font-weight: bolder;"><a href="/"> Home</a></p>
+
+    <h1 style="text-align: center; ">My Bookings</h1>
+       
+    <table>
+       
+        <tr>
+            <th>Tour Name</th><th>Duration</th><th>Price</th><th>Person/s</th><th>Booking date</th><th>Tour Date</th><th>Sub-total</th>
+        </tr>
+        {%for tour in tours%}
+      
+        <tr>
+            <td  style="width: 200px;">{{tour[1]}}</td>
+            <td  style="width: 150px;"> {{tour[7]}}</td>
+            <td style="width: 200px;">Rs. {{tour[2]}} /- for one person</td>
+            <td style="width: 100px; text-align: center;">{{tour[3]}}</td>            
+            <td style="width: 100px; text-align: center;">{{tour[5]}}</td>        
+            <td style="width: 100px; text-align: center;">{{tour[6]}}</td>  
+            <td  style="width: 100px;">Rs.{{tour[4]}}/-</td>
+        </tr>
+        {%endfor%}
+        <tr class="total-row">
+            <td colspan="6" style="text-align: right;">Total Rs.:</td><td>{{sum}}/-</td>
+        </tr>
+    
+    </table> 
+    
+
+
+
+<footer class="container">
+        
+    <form class="image">
+  
+        <img src="\static\Images\foot_bg.png" width="100%" height="20px">
+    </form>
+  </footer>
+</body>
+</html>

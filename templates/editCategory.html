@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Record</title>
+    <style>
+        body {
+            background-color: #7FFFD4; /* Aquamarine */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #01484c; /* Teal */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            border: 1px solid #008080; /* Teal */
+            width: 50%;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+            font-weight: bolder;
+
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #008080; /* Teal */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bolder;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005555; /* Dark Teal */
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Edit Record</h1>
+        <hr />
+        <form method="post">
+            <table border="1">
+                <tr>
+                    <td>Category Name</td>
+                    <td><input type="text" name="cname" value="{{cat[1]}}" required /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Update Record" /></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>

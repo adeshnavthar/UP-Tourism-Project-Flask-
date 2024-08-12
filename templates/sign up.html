@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Sign Up</title>
+    <style>
+        .shifted {
+          text-align: right;
+          font-size: x-large; 
+          font-weight: bolder;
+          padding-right: 10px;
+        }
+  </style>
+</head>
+<body>
+<h1 style="text-align: center;">Sign Up</h1>
+ 
+    <p class="shifted" >
+      <a href="/"><span class="glyphicon glyphicon-home" ></span> Home </a><br>
+      <a href="/login"><span class="glyphicon glyphicon-user" ></span> Login </a>
+
+    </p>    
+
+    <center>
+
+      <form method="post">
+
+        <table class="table"  style="align-content: center ;  background-color: #f0f0f0; padding: 10px;width: 500px ;margin-left: 00px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+            <tr><td style="width: 100px;font-size: large; font-weight: bold; color:black;">USERNAME</td><td sty><input type="text" name="uname" class="form-control" required placeholder="USERNAME"/></td></tr>
+            <tr><td style="width: 100px; font-size: large; font-weight: bold; color:black;">PASSWORD</td><td ><input type="password" name="pwd" class="form-control" required placeholder="PASSWORD"/></td></tr>
+            <tr><td style="width: 100px; font-size: large; font-weight: bold; color:black;">EMAIL ID</td><td style="width: 200px;"><input type="email" name="email" class="form-control" required placeholder="EMAIL"/></td></tr>
+            <tr><td colspan="2" style="text-align: center;"><pr style="font-size: large; font-weight: bold; color:black;">{{message1}}<br>{{message}}</pr></td></tr>
+            <tr><td align="center"  colspan="2"><button type="submit" value="Sign up" class="button btn-success form-control" style="background-color: green; width: 200px;font-size: large; font-weight: bold; color:rgb(252, 252, 252);">Sign Up</button></td></tr>
+        </table><br>
+        
+      </form>
+  </center>
+</body>
+</html>

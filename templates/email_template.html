@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            color: #ab0422;
+            text-align: center;
+        }
+
+        h3 {
+            color: #2ecc71; 
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid #0a0a0a;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        p {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        p.note {
+            color: #f91414;
+        }
+
+        p.thank-you {
+            font-weight: bold;
+            color: #008f3b;
+        }
+    </style>
+</head>
+
+<body>
+    <h2> UP Tours And Travels </h2>
+    <h3> Booking Confirmation </h3>
+    <p> Your booking details are as follows: </p>
+    <p style="color: rgb(252, 63, 30);"> Date of Tour: {{date_of_tour}} </p>
+    <p style="color: rgb(252, 63, 30);">Date of Booking: {{date_of_booking}}</p>
+    <table>
+        <thead>
+            <th>Tour Name</th>
+            <th>Duration</th>
+            <th>Price</th>
+            <th>Person/s</th>
+            <th>Subtotal</th>
+        </thead>
+        <tbody>
+            {%for tour in mail%}
+            <tr>
+                <td style="text-transform: uppercase;">{{tour[1]}}</td>
+                <td>{{tour[7]}}</td>
+                <td>{{tour[2]}}</td>
+                <td>{{tour[3]}}</td>
+                <td>{{tour[4]}}/-</td>
+            </tr>
+            {%endfor%}
+            <tr>
+                <td colspan="4">Total Paid Rs.:</td>
+                <td>{{total}}/-</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="thank-you">Thank you for choosing our service. We look forward to welcoming you!</p>
+    <p class="note">Note: This is a system-generated email. Please do not reply to this email.</p>
+</body>
+
+</html>

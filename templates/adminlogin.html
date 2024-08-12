@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            width: calc(100% - 20px);
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #dc143c; 
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #8b0000;
+        }
+
+        #attempt-message {
+            text-align: center;
+            color: #ff0000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Admin Login</h1>
+        <hr/>
+        <form id="loginForm" method="post">
+            <table border="1">
+                <tr>
+                    <td>Login Id</td>
+                    <td><input type="text" name="uname" required/></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" name="pwd" required/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="color: #ff0000; font-size: large;font-weight: bold;">{{msg}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" ><input style="text-align: center; font-weight: bold;" type="submit" value="Login"/></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+
+</body>
+</html>

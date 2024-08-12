@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        p {
+            text-align: right;
+            padding-right: 30px;
+            padding-top: 10px;
+            font-size: x-large;
+            font-weight: bolder;
+        }
+
+        h1 {
+            color: rgb(5, 48, 104);
+        }
+
+        hr {
+            width: 80%;
+            margin: auto;
+            border: 1px solid #000000;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table,
+        th,
+        td {
+            border: 2px solid #000000;
+            font-size: larger;
+            height: 50px;
+            text-align: center;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .table {
+            padding-left: 30px;
+            text-align: left;
+            max-width: 500px;
+        }
+
+        input[type="date"],
+        input[type="text"],
+        input[type="submit"] {
+            width: 250px;
+            height: 25px;
+            padding: 5px;
+            font-size: medium;
+            margin: 5px;
+            box-sizing: border-box;
+
+        }
+
+        input[type="submit"] {
+            width: 240px;
+            height: 40px;
+            background-color: green;
+            color: white;
+            font-size: large;
+            font-weight: bolder;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <p><a href="/"> Home</a></p>
+
+    <h1>Make Payment</h1>
+
+    <hr />
+    <form method="post">
+        <table class="table">
+            <tr>
+                <td>User Name :</td>
+                <td aria-readonly='{{session["uname"]}}'>{{session["uname"]}}</td>
+            </tr>
+            <tr>
+                <td>Enter Date of Tour</td>
+                <td><input type="date" name="date_tour" class="form-control" required></td>
+            </tr>
+            <tr>
+                <td>Card No.:</td>
+                <td><input type="text" name="cardno" class="form-control" placeholder="16 digit card number" required></td>
+            </tr>
+            <tr>
+                <td>CVV:</td>
+                <td><input type="text" name="cvv" class="form-control" placeholder="CVV" required></td>
+            </tr>
+            <tr>
+                <td>Expiry Date:</td>
+                <td><input type="text" name="expiry" class="form-control" placeholder="MM/YY" required></td>
+            </tr>
+            <tr>
+                <td>Total Amount:</td>
+                <td readonly class="form-control">Rs.{{session['total']}} /-</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Make Payment"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
